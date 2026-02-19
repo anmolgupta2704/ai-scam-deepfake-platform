@@ -1,0 +1,57 @@
+# ------------------------
+# Node / Vite / React
+# ------------------------
+node_modules/
+dist/
+build/
+.vite/
+.vscode/
+
+# ------------------------
+# Logs
+# ------------------------
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ------------------------
+# Environment variables
+# ------------------------
+.env
+.env.local
+.env.development
+.env.production
+
+# ------------------------
+# OS / Editor
+# ------------------------
+.DS_Store
+Thumbs.db
+
+# ------------------------
+# Coverage / Cache
+# ------------------------
+coverage/
+.cache/
+
+# ------------------------
+# Python (AI Service)
+# ------------------------
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+
+# ------------------------
+# MongoDB / DB files (if any local dumps)
+# ------------------------
+*.sqlite
+*.db
+
+# ------------------------
+# Misc
+# ------------------------
+*.log
