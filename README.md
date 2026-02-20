@@ -1,2 +1,2 @@
-# ai-scam-deepfake-platform
+# ai-scam-deepfake
 
