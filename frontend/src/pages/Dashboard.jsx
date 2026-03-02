@@ -1,8 +1,16 @@
+import MainLayout from "../layout/MainLayout";
+import StatCard from "../components/StatCard";
+
 export default function Dashboard() {
   return (
-    <div style={{ padding: 24 }}>
-      <h1>Dashboard</h1>
-      <p>Welcome to AI Scam & Deepfake Detection</p>
-    </div>
+    <MainLayout>
+      <h1 className="text-3xl font-bold mb-6">Security Dashboard</h1>
+
+      <div className="grid grid-cols-3 gap-6">
+        <StatCard title="Total Scans" value="142" color="blue" />
+        <StatCard title="Threats Detected" value="37" color="red" />
+        <StatCard title="Safe Files" value="105" color="green" />
+      </div>
+    </MainLayout>
   );
 }
