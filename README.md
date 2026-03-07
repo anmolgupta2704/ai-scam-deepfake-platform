@@ -106,7 +106,7 @@ ai-scam-deepfake-platform
 ### 1️⃣ Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/ai-scam-deepfake-platform.git
+git clone https://github.com/anmolgupta2704/ai-scam-deepfake-platform
 ```
 
 ### 2️⃣ Navigate to Project
