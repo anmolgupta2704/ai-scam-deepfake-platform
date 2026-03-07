@@ -1,8 +1,40 @@
-export default function Profile() {
-  return (
-    <div className="min-h-screen bg-zinc-900 text-white p-10">
-      <h1 className="text-2xl font-bold">Profile</h1>
-      <p>User profile settings here.</p>
-    </div>
-  );
+import MainLayout from "../layout/MainLayout"
+import "../styles/dashboard.css"
+
+export default function Profile(){
+
+return(
+
+<MainLayout>
+
+<div className="page-card">
+
+<h1 className="page-title">
+Profile
+</h1>
+
+<p className="page-sub">
+User profile settings
+</p>
+
+<div>
+
+<label>Name</label>
+<input className="input"/>
+
+<label>Email</label>
+<input className="input"/>
+
+<button className="btn">
+Update Profile
+</button>
+
+</div>
+
+</div>
+
+</MainLayout>
+
+)
+
 }

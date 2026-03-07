@@ -1,23 +1,36 @@
-import MainLayout from "../layout/MainLayout";
+import MainLayout from "../layout/MainLayout"
+import "../styles/dashboard.css"
 
-export default function Upload() {
-  return (
-    <MainLayout>
-      <h1 className="text-2xl font-bold mb-6 text-blue-400">
-        Upload Media for Analysis
-      </h1>
+export default function Upload(){
 
-      <div className="glass p-10 rounded-xl text-center border-dashed border-2 border-blue-500">
-        <p className="mb-4 text-gray-300">
-          Drag & Drop your file here
-        </p>
+return(
 
-        <input type="file" className="mb-4" />
+<MainLayout>
 
-        <button className="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-lg transition-all duration-300">
-          Scan Now
-        </button>
-      </div>
-    </MainLayout>
-  );
+<div className="page-card">
+
+<h1 className="page-title">
+Upload File
+</h1>
+
+<p className="page-sub">
+Upload media to detect scam or deepfake
+</p>
+
+<div className="upload-box">
+
+<input type="file"/>
+
+<button className="btn">
+Scan File
+</button>
+
+</div>
+
+</div>
+
+</MainLayout>
+
+)
+
 }
