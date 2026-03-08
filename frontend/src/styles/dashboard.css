@@ -120,3 +120,23 @@ text-align:left;
 .report-table tr:hover{
 background:#1e293b;
 }
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 30px;
+background:#020c22;
+border-bottom:1px solid rgba(255,255,255,0.05);
+}
+
+.nav-left{
+font-size:18px;
+font-weight:600;
+color:#ffffff;
+}
+
+.nav-right{
+color:#4ea1ff;
+font-weight:500;
+}

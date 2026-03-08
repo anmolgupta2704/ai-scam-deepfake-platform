@@ -1,7 +1,25 @@
+import { useEffect,useState } from "react"
 import MainLayout from "../layout/MainLayout"
-import "../styles/dashboard.css"
 
 export default function Reports(){
+
+const [scans,setScans] = useState([])
+
+useEffect(()=>{
+
+async function loadReports(){
+
+const res = await fetch("http://localhost:5000/api/scan/history")
+
+const data = await res.json()
+
+setScans(data)
+
+}
+
+loadReports()
+
+},[])
 
 return(
 
@@ -9,9 +27,7 @@ return(
 
 <div className="page-card">
 
-<h1 className="page-title">
-Reports
-</h1>
+<h1 className="page-title">Reports</h1>
 
 <p className="page-sub">
 All scan history will appear here
@@ -31,17 +47,13 @@ All scan history will appear here
 
 <tbody>
 
-<tr>
-<td>video1.mp4</td>
-<td>Safe</td>
-<td>02 Mar</td>
+{scans.map((scan)=>(
+<tr key={scan._id}>
+<td>{scan.fileName}</td>
+<td>{scan.result}</td>
+<td>{new Date(scan.date).toLocaleDateString()}</td>
 </tr>
-
-<tr>
-<td>audio2.wav</td>
-<td>Deepfake</td>
-<td>01 Mar</td>
-</tr>
+))}
 
 </tbody>
 

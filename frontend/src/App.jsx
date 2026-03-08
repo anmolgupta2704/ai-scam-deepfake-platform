@@ -5,13 +5,13 @@ import Upload from "./pages/Upload";
 import Reports from "./pages/Reports";
 import Profile from "./pages/Profile";
 import ProtectedRoute from "./components/ProtectedRoute";
-
+import Register from "./pages/Register"
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Login />} />
-
+        <Route path="/register" element={<Register/>}/>
         <Route
           path="/dashboard"
           element={

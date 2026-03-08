@@ -1,0 +1,25 @@
+.page-card input{
+width:100%;
+padding:12px;
+margin-top:6px;
+margin-bottom:20px;
+
+background:#0b1a34;
+border:1px solid rgba(255,255,255,0.08);
+border-radius:6px;
+
+color:white;
+font-size:14px;
+}
+
+.page-card input:focus{
+outline:none;
+border:1px solid #4ea1ff;
+box-shadow:0 0 6px rgba(78,161,255,0.4);
+}
+
+.page-card label{
+display:block;
+margin-bottom:5px;
+color:#9bb3d3;
+}
