@@ -1,75 +1,141 @@
-# AI Scam & Deepfake Detection System
+# 🛡 AI Scam & Deepfake Detection System
 
 ## 📌 Overview
 
-The **AI Scam & Deepfake Detection System** is a web-based platform designed to detect potential scams and deepfake media using Artificial Intelligence techniques.
-The system allows users to upload media files (audio/video/images) and analyze them to determine whether they are genuine or manipulated.
+The **AI Scam & Deepfake Detection System** is an AI-powered web platform designed to detect manipulated media such as **deepfake images, videos, and scam content**.
 
-This project aims to provide an easy-to-use dashboard where users can upload files, view detection results, track scan history, and manage their profiles.
+The system allows users to upload media files which are analyzed using **Deep Learning models** to determine whether the content is **Real or Deepfake**.
 
----
+This platform provides a **secure dashboard interface** where users can upload files, analyze results, view scan history, and manage their profiles.
 
-## 🚀 Features
-
-* 🔐 **Secure Login System**
-  User authentication with login and protected routes.
-
-* 📂 **Media Upload & Scan**
-  Upload audio, video, or image files for scam/deepfake analysis.
-
-* 🤖 **AI-Based Detection**
-  Uses machine learning models to detect manipulated media.
-
-* 📊 **Dashboard Analytics**
-  Displays statistics such as:
-
-  * Total scans
-  * Threats detected
-  * Safe files
-
-* 📑 **Reports Section**
-  Shows the scan history and results of analyzed files.
-
-* 👤 **User Profile Management**
-  Users can manage profile information.
-
-* 🎨 **Professional Dashboard UI**
-  Modern dark-themed interface with sidebar navigation.
+The goal of this project is to help detect **AI-generated scams and manipulated media**, improving digital security and awareness.
 
 ---
 
-## 🛠️ Tech Stack
+# 🚀 Features
 
-### Frontend
+### 🔐 Secure Authentication
+
+* User registration and login system
+* Protected routes using authentication tokens
+
+### 📂 Media Upload & Scan
+
+Users can upload:
+
+* Images
+* Videos
+* Audio files
+
+The uploaded media is analyzed by an **AI model**.
+
+### 🤖 AI-Based Deepfake Detection
+
+* Deep Learning model trained using **TensorFlow**
+* Detects manipulated faces and fake media
+* Returns prediction with confidence score
+
+### 📊 Dashboard Analytics
+
+Displays statistics such as:
+
+* Total scans performed
+* Threats detected
+* Safe files detected
+
+### 📑 Scan Reports
+
+* Shows history of scanned files
+* Displays detection results
+* Tracks scan timestamps
+
+### 👤 User Profile Management
+
+* View user details
+* Update profile information
+
+### 🎨 Professional Dashboard UI
+
+* Dark themed modern interface
+* Sidebar navigation
+* Responsive layout
+
+---
+
+# 🧠 AI Model
+
+The project uses a **Convolutional Neural Network (CNN)** model for deepfake detection.
+
+### Model Architecture
+
+* Conv2D
+* MaxPooling
+* Flatten
+* Dense Layers
+* Sigmoid Output
+
+### Training Details
+
+* Framework: **TensorFlow / Keras**
+* Image size: **128 × 128**
+* Loss function: **Binary Crossentropy**
+* Optimizer: **Adam**
+
+Output prediction:
+
+```
+Real
+or
+Deepfake
+```
+
+with confidence score.
+
+---
+
+# 🛠 Tech Stack
+
+## Frontend
 
 * React.js
 * React Router
 * CSS3 (Custom Advanced Styling)
+* Vite
 
-### Backend *(optional / if integrated)*
+## Backend
 
 * Node.js
 * Express.js
+* REST API
 
-### AI / ML
+## Database
+
+* MongoDB
+
+## AI / Machine Learning
 
 * Python
-* Deep Learning models for deepfake detection
+* TensorFlow
+* OpenCV
+* NumPy
+* Scikit-learn
 
-### Tools
+## Tools
 
-* Vite
 * VS Code
-* Git & GitHub
+* Git
+* GitHub
+* Postman
 
 ---
 
-## 📂 Project Structure
+# 📂 Project Structure
 
 ```
 ai-scam-deepfake-platform
 │
 ├── frontend
+│
 │   ├── src
 │   │   ├── components
 │   │   │   ├── Navbar.jsx
@@ -87,47 +153,58 @@ ai-scam-deepfake-platform
 │   │   │   └── AuthLayout.jsx
 │   │   │
 │   │   ├── styles
-│   │   │   ├── layout.css
 │   │   │   ├── dashboard.css
+│   │   │   ├── layout.css
 │   │   │   └── auth.css
 │   │   │
 │   │   ├── App.jsx
 │   │   └── main.jsx
-│   │
-│   └── index.html
+│
+├── backend
+│   ├── routes
+│   ├── controllers
+│   ├── models
+│   ├── middleware
+│   ├── utils
+│   └── server.js
+│
+├── ai-model
+│   ├── dataset
+│   ├── train_model.py
+│   ├── predict.py
+│   └── deepfake_model.h5
 │
 └── README.md
 ```
 
 ---
 
-## ⚙️ Installation & Setup
+# ⚙️ Installation & Setup
 
-### 1️⃣ Clone the Repository
+## 1️⃣ Clone Repository
 
-```bash
+```
 git clone https://github.com/anmolgupta2704/ai-scam-deepfake-platform
 ```
 
-### 2️⃣ Navigate to Project
+---
 
-```bash
-cd ai-scam-deepfake-platform/frontend
+## 2️⃣ Install Frontend
+
 ```
-
-### 3️⃣ Install Dependencies
-
-```bash
+cd frontend
 npm install
 ```
 
-### 4️⃣ Run Development Server
+---
 
-```bash
+## 3️⃣ Run Frontend
+
+```
 npm run dev
 ```
 
-### 5️⃣ Open Browser
+Open browser:
 
 ```
 http://localhost:5173
@@ -135,41 +212,100 @@ http://localhost:5173
 
 ---
 
-## 📸 Screens
+## 4️⃣ Run Backend
 
-* Login Page
-* Dashboard
-* Upload Page
-* Reports Page
-* Profile Page
+```
+cd backend
+npm install
+node server.js
+```
 
----
+Backend runs on:
 
-## 🎯 Use Cases
-
-* Detect fake videos or manipulated media.
-* Identify potential scam content.
-* Provide a centralized dashboard for monitoring suspicious media.
+```
+http://localhost:5000
+```
 
 ---
 
-## 🔮 Future Enhancements
+## 5️⃣ Train AI Model
 
-* AI deepfake detection models integration
-* Real-time video analysis
-* Voice scam detection
-* Advanced analytics dashboard
+```
+cd ai-model
+python train_model.py
+```
+
+This generates:
+
+```
+deepfake_model.h5
+```
+
+---
+
+# 📸 Screenshots
+
+### Login Page
+
+User authentication interface.
+
+### Dashboard
+
+Displays detection statistics.
+
+### Upload Page
+
+Upload files for AI analysis.
+
+### Reports Page
+
+View scan history and results.
+
+### Profile Page
+
+Manage user information.
+
+---
+
+# 🎯 Use Cases
+
+* Detect deepfake images and videos
+* Identify manipulated media
+* Prevent AI-powered scams
+* Improve online media authenticity
+* Provide monitoring dashboard for suspicious media
+
+---
+
+# 🔮 Future Enhancements
+
+* Video deepfake detection
+* Voice deepfake detection
+* Real-time AI detection
 * Cloud storage integration
+* AI confidence visualization
+* Multi-user monitoring system
 
 ---
 
-## 👨‍💻 Author
+# 👨‍💻 Author
 
 **Anmol Gupta**
+
 B.Tech Computer Science (Cybersecurity)
 
 ---
 
-## 📜 License
+# ⭐ Project Purpose
 
-This project is created for **educational and research purposes**.
+This project was developed as a **Final Year Major Project** to demonstrate the use of:
+
+* Artificial Intelligence
+* Full Stack Web Development
+* Cybersecurity Applications
+
+---
+
+# 📜 License
+
+This project is developed for **educational and research purposes**.
