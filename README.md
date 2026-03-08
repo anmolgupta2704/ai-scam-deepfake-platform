@@ -242,7 +242,7 @@ deepfake_model.h5
 ```
 
 ---
-
+<!-- 
 # 📸 Screenshots
 
 ### Login Page
@@ -265,7 +265,7 @@ View scan history and results.
 
 Manage user information.
 
----
+--- -->
 
 # 🎯 Use Cases
 
