@@ -27,7 +27,11 @@ body:formData
 
 const data = await res.json()
 
-alert("Result: "+data.result)
+alert(
+"Result: " + data.label +
+"\nConfidence: " + (data.confidence * 100).toFixed(2) + "%"
+)
+
 
 }
 

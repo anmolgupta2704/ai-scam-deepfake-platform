@@ -14,7 +14,14 @@ cb(null, Date.now() + "-" + file.originalname)
 }
 
 })
+const express = require("express")
 
+
+const { getStats } = require("../controllers/scanController")
+
+router.get("/stats", getStats)
+
+module.exports = router
 const upload = multer({ storage })
 
 router.post("/upload", upload.single("file"), async (req, res) => {

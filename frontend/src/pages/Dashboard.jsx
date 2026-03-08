@@ -1,25 +1,104 @@
-import MainLayout from "../layout/MainLayout";
-import StatCard from "../components/StatCard";
-import "../styles/dashboard.css";
+import { useEffect,useState } from "react"
+import MainLayout from "../layout/MainLayout"
+
+import { Pie, Bar } from "react-chartjs-2"
+
+import {
+Chart as ChartJS,
+ArcElement,
+BarElement,
+CategoryScale,
+LinearScale,
+Tooltip,
+Legend
+} from "chart.js"
+
+ChartJS.register(
+ArcElement,
+BarElement,
+CategoryScale,
+LinearScale,
+Tooltip,
+Legend
+)
 
 export default function Dashboard(){
+
+const [stats,setStats] = useState({
+total:0,
+threats:0,
+safe:0
+})
+
+useEffect(()=>{
+
+fetch("http://localhost:5000/api/scan/stats")
+.then(res=>res.json())
+.then(data=>setStats(data))
+
+},[])
+
+const pieData = {
+labels:["Threats","Safe Files"],
+datasets:[
+{
+data:[stats.threats,stats.safe],
+backgroundColor:["#ff4d4d","#00c853"]
+}
+]
+}
+
+const barData = {
+labels:["Total","Threats","Safe"],
+datasets:[
+{
+label:"Scans",
+data:[stats.total,stats.threats,stats.safe],
+backgroundColor:["#3f51b5","#ff4d4d","#00c853"]
+}
+]
+}
 
 return(
 
 <MainLayout>
 
-<h1 className="dashboard-title">
-Security Overview
-</h1>
+<div className="dashboard">
 
-<p className="dashboard-sub">
-Real-time deepfake & scam detection statistics
-</p>
+<h1>Security Overview</h1>
+
 <div className="cards">
 
-<StatCard title="Total Scans" value="142"/>
-<StatCard title="Threats Detected" value="37"/>
-<StatCard title="Safe Files" value="105"/>
+<div className="card">
+<h3>Total Scans</h3>
+<h2>{stats.total}</h2>
+</div>
+
+<div className="card">
+<h3>Threats Detected</h3>
+<h2>{stats.threats}</h2>
+</div>
+
+<div className="card">
+<h3>Safe Files</h3>
+<h2>{stats.safe}</h2>
+</div>
+
+</div>
+
+<div style={{display:"flex",gap:"40px",marginTop:"40px"}}>
+
+<div style={{width:"40%"}}>
+<h3>Threat Distribution</h3>
+<Pie data={pieData}/>
+</div>
+
+<div style={{width:"60%"}}>
+<h3>Detection Overview</h3>
+<Bar data={barData}/>
+</div>
+
+</div>
 
 </div>
 

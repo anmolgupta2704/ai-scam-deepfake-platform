@@ -57,3 +57,4 @@ venv/
 *.log
 dataset/
 uploads/
+deepfake_model.h5
