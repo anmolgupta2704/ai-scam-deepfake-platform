@@ -21,6 +21,9 @@ AI Shield
 
 <NavLink to="/profile">Profile</NavLink>
 
+<NavLink to="/webcam">Live Scan</NavLink>
+
+
 </div>
 
 </div>
