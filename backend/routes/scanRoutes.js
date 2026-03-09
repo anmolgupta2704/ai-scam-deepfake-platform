@@ -45,7 +45,7 @@ res.json(result)
 })
 router.get("/recent", scanController.getRecentScans)
 router.get("/history",async(req,res)=>{
-
+router.delete("/:id", scanController.deleteScan)
 const scans = await Scan.find().sort({date:-1})
 
 res.json(scans)

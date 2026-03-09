@@ -29,7 +29,21 @@ error:"Scan failed"
 
 }
 
+exports.deleteScan = async(req,res)=>{
 
+try{
+
+await Scan.findByIdAndDelete(req.params.id)
+
+res.json({message:"Deleted"})
+
+}catch(err){
+
+res.status(500).json({error:"Delete failed"})
+
+}
+
+}
 // dashboard stats
 exports.getStats = async(req,res)=>{
 
