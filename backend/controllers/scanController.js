@@ -53,3 +53,21 @@ res.status(500).json({error:"Stats error"})
 }
 
 }
+exports.getRecentScans = async (req,res)=>{
+
+try{
+
+const scans = await Scan
+.find()
+.sort({date:-1})
+.limit(5)
+
+res.json(scans)
+
+}catch(err){
+
+res.status(500).json({error:"Failed to fetch scans"})
+
+}
+
+}

@@ -1,6 +1,6 @@
 const router = require("express").Router()
 const multer = require("multer")
-
+const scanController = require("../controllers/scanController")
 const Scan = require("../models/Scan")
 
 const { runAI } = require("../utils/runAI")
@@ -43,6 +43,7 @@ await scan.save()
 res.json(result)
 
 })
+router.get("/recent", scanController.getRecentScans)
 router.get("/history",async(req,res)=>{
 
 const scans = await Scan.find().sort({date:-1})
@@ -51,3 +52,4 @@ res.json(scans)
 
 })
 module.exports = router
+router.get("/recent", scanController.getRecentScans)

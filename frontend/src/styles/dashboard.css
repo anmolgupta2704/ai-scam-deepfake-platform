@@ -158,3 +158,39 @@ width:200px;
 color:white;
 text-align:center;
 }
+.recent-section{
+margin-top:40px;
+}
+
+.recent-table{
+width:100%;
+border-collapse:collapse;
+margin-top:15px;
+color:white;
+}
+
+.recent-table th{
+text-align:left;
+padding:12px;
+border-bottom:2px solid #333;
+font-weight:600;
+}
+
+.recent-table td{
+padding:12px;
+border-bottom:1px solid #222;
+}
+
+.recent-table tr:hover{
+background:#121a35;
+}
+
+.safe{
+color:#00c853;
+font-weight:600;
+}
+
+.danger{
+color:#ff4d4d;
+font-weight:600;
+}

@@ -58,7 +58,18 @@ backgroundColor:["#3f51b5","#ff4d4d","#00c853"]
 }
 ]
 }
+const [recent,setRecent] = useState([])
+useEffect(()=>{
 
+fetch("http://localhost:5000/api/scan/stats")
+.then(res=>res.json())
+.then(data=>setStats(data))
+
+fetch("http://localhost:5000/api/scan/recent")
+.then(res=>res.json())
+.then(data=>setRecent(data))
+
+},[])
 return(
 
 <MainLayout>
@@ -99,7 +110,44 @@ return(
 </div>
 
 </div>
+<div className="recent-section">
 
+<h3>Recent Scans</h3>
+
+<table className="recent-table">
+
+<thead>
+<tr>
+<th>File</th>
+<th>Result</th>
+<th>Confidence</th>
+<th>Date</th>
+</tr>
+</thead>
+
+<tbody>
+
+{recent.map(scan=>(
+<tr key={scan._id}>
+
+<td>{scan.fileName}</td>
+
+<td className={scan.result==="Deepfake"?"danger":"safe"}>
+{scan.result}
+</td>
+
+<td>{(scan.confidence*100).toFixed(1)}%</td>
+
+<td>{new Date(scan.date).toLocaleDateString()}</td>
+
+</tr>
+))}
+
+</tbody>
+
+</table>
+
+</div>
 </div>
 
 </MainLayout>
