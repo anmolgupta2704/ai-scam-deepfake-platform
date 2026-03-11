@@ -308,4 +308,4 @@ This project was developed as a **Final Year Major Project** to demonstrate the 
 
 # 📜 License
 
-This project is developed for **educational and research purposes**.
+This project is developed for **educational and research purposes**
