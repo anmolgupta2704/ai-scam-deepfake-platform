@@ -7,6 +7,7 @@ import Profile from "./pages/Profile";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Register from "./pages/Register"
 import WebcamScan from "./pages/WebcamScan"
+import Settings from "./pages/Settings"
 export default function App() {
   return (
     <BrowserRouter>
@@ -33,6 +34,7 @@ export default function App() {
         <Route path="/webcam" element={<WebcamScan/>}/>
         <Route path="/reports" element={<Reports />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/settings" element={<Settings/>}/>
       </Routes>
     </BrowserRouter>
   );

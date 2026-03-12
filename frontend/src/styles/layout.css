@@ -59,30 +59,32 @@ flex-direction:column;
 
 /* NAVBAR */
 
-.navbar{
-height:65px;
-background:#020617;
-border-bottom:1px solid #1e293b;
-
-display:flex;
-align-items:center;
-justify-content:space-between;
-
-padding:0 30px;
+.profile-menu{
+position:relative;
+cursor:pointer;
 }
 
-.nav-left{
-font-size:18px;
-font-weight:600;
+.profile-btn{
+padding:8px 14px;
+background:#0b1b3a;
+border-radius:6px;
 }
 
-.nav-right{
-color:#94a3b8;
+.dropdown{
+position:absolute;
+top:40px;
+right:0;
+background:#0f1f45;
+border-radius:8px;
+width:150px;
+box-shadow:0 5px 15px rgba(0,0,0,0.3);
 }
 
-/* PAGE CONTENT */
+.dropdown div{
+padding:10px;
+cursor:pointer;
+}
 
-.content{
-padding:40px;
-flex:1;
+.dropdown div:hover{
+background:#1a2b55;
 }

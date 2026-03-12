@@ -1,46 +1,56 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 export default function Navbar(){
 
-const [user,setUser] = useState({})
+const [open,setOpen] = useState(false)
 
-useEffect(()=>{
+const navigate = useNavigate()
 
-async function loadUser(){
+function logout(){
 
-const token = localStorage.getItem("token")
+localStorage.removeItem("token")
 
-if(!token) return
-
-const res = await fetch("http://localhost:5000/api/user/me",{
-headers:{
-Authorization:"Bearer "+token
-}
-})
-
-const data = await res.json()
-
-setUser(data)
+navigate("/login")
 
 }
-
-loadUser()
-
-},[])
 
 return(
 
 <div className="navbar">
 
-<div className="nav-left">
+<div className="logo">
 AI Scam & Deepfake Detection
 </div>
 
-<div className="nav-right">
+<div className="profile-menu">
 
-<span className="user-name">
-👤 {user.name|| "User"}
-</span>
+<div
+className="profile-btn"
+onClick={()=>setOpen(!open)}
+>
+Anmol ▼
+</div>
+
+{open && (
+
+<div className="dropdown">
+
+<div onClick={()=>navigate("/profile")}>
+Profile
+</div>
+
+<div onClick={()=>navigate("/settings")}>
+Settings
+</div>
+
+<div onClick={logout}>
+Logout
+</div>
+
+</div>
+
+)}
 
 </div>
 
