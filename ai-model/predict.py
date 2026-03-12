@@ -19,6 +19,11 @@ model = tf.keras.models.load_model(model_path)
 file_path = sys.argv[1]
 
 img = cv2.imread(file_path)
+
+if img is None:
+    print('{"label":"Error","confidence":0}')
+    exit()
+
 img = cv2.resize(img,(128,128))
 img = img/255.0
 

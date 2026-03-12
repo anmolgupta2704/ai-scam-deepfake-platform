@@ -8,18 +8,30 @@ try{
 
 const filePath = req.file.path
 
-const result = await runAI(filePath)
+// detect image or video
+let type = "image"
+
+if(req.file.mimetype.includes("video")){
+type = "video"
+}
+
+const result = await runAI(filePath,type)
 
 const scan = new Scan({
-file: req.file.filename,
-status: result.label
+
+fileName: req.file.filename,
+result: result.label,
+confidence: result.confidence
+
 })
 
 await scan.save()
 
-res.json(result)
+res.json({result})
 
 }catch(err){
+
+console.log(err)
 
 res.status(500).json({
 error:"Scan failed"
@@ -29,6 +41,8 @@ error:"Scan failed"
 
 }
 
+
+// delete scan
 exports.deleteScan = async(req,res)=>{
 
 try{
@@ -44,6 +58,8 @@ res.status(500).json({error:"Delete failed"})
 }
 
 }
+
+
 // dashboard stats
 exports.getStats = async(req,res)=>{
 
@@ -52,6 +68,7 @@ try{
 const total = await Scan.countDocuments()
 
 const threats = await Scan.countDocuments({result:/Deepfake/i})
+
 const safe = await Scan.countDocuments({result:/Real/i})
 
 res.json({
@@ -67,6 +84,9 @@ res.status(500).json({error:"Stats error"})
 }
 
 }
+
+
+// recent scans
 exports.getRecentScans = async (req,res)=>{
 
 try{
@@ -85,17 +105,39 @@ res.status(500).json({error:"Failed to fetch scans"})
 }
 
 }
+
+
+// export scans
 exports.exportScans = async(req,res)=>{
+
+try{
 
 const scans = await Scan.find()
 
 res.json(scans)
 
+}catch(err){
+
+res.status(500).json({error:"Export failed"})
+
 }
+
+}
+
+
+// clear history
 exports.clearHistory = async(req,res)=>{
+
+try{
 
 await Scan.deleteMany()
 
 res.json({message:"History cleared"})
+
+}catch(err){
+
+res.status(500).json({error:"Clear history failed"})
+
+}
 
 }

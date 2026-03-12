@@ -8,9 +8,7 @@ const [search,setSearch] = useState("")
 const [preview,setPreview] = useState(null)
 
 useEffect(()=>{
-
 loadReports()
-
 },[])
 
 async function loadReports(){
@@ -36,6 +34,10 @@ loadReports()
 const filtered = scans.filter(scan=>
 scan.fileName.toLowerCase().includes(search.toLowerCase())
 )
+
+function isVideo(file){
+return file.endsWith(".mp4") || file.endsWith(".mov") || file.endsWith(".webm")
+}
 
 return(
 
@@ -74,12 +76,26 @@ className="search-box"
 
 <td>
 
+{isVideo(scan.fileName) ? (
+
+<video
+width="70"
+className="preview-img"
+onClick={()=>setPreview(scan.fileName)}
+>
+<source src={`http://localhost:5000/uploads/${scan.fileName}`} />
+</video>
+
+) : (
+
 <img
 src={`http://localhost:5000/uploads/${scan.fileName}`}
 width="50"
 className="preview-img"
 onClick={()=>setPreview(scan.fileName)}
 />
+
+)}
 
 </td>
 
@@ -120,14 +136,26 @@ Delete
 
 </table>
 
+{/* Preview Modal */}
+
 {preview && (
 
 <div className="modal" onClick={()=>setPreview(null)}>
+
+{isVideo(preview) ? (
+
+<video controls className="modal-video">
+<source src={`http://localhost:5000/uploads/${preview}`} />
+</video>
+
+) : (
 
 <img
 src={`http://localhost:5000/uploads/${preview}`}
 className="modal-img"
 />
+
+)}
 
 </div>
 
