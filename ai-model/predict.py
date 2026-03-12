@@ -20,27 +20,32 @@ file_path = sys.argv[1]
 
 img = cv2.imread(file_path)
 
+# invalid image
 if img is None:
-    print('{"label":"Error","confidence":0}')
+    print(json.dumps({
+        "label":"Error",
+        "confidence":0
+    }))
     exit()
 
+# preprocess
 img = cv2.resize(img,(128,128))
-img = img/255.0
-
+img = img / 255.0
 img = np.expand_dims(img,axis=0)
 
 prediction = model.predict(img,verbose=0)[0][0]
 
-print("Model output:", prediction)
-
+# classification
 if prediction > 0.5:
     label = "Real"
+    confidence = float(prediction)
 else:
     label = "Deepfake"
+    confidence = float(1 - prediction)
 
 result = {
 "label": label,
-"confidence": float(prediction)
+"confidence": confidence
 }
 
 print(json.dumps(result))
