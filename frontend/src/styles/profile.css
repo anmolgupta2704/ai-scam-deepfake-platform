@@ -23,3 +23,31 @@ display:block;
 margin-bottom:5px;
 color:#9bb3d3;
 }
+.divider{
+margin:30px 0;
+border:1px solid #222;
+}
+
+.profile-actions{
+margin-top:20px;
+display:flex;
+gap:15px;
+}
+
+.logout-btn{
+background:#3f51b5;
+color:white;
+border:none;
+padding:10px 18px;
+border-radius:6px;
+cursor:pointer;
+}
+
+.delete-btn{
+background:#ff4d4d;
+color:white;
+border:none;
+padding:10px 18px;
+border-radius:6px;
+cursor:pointer;
+}
