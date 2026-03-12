@@ -51,5 +51,8 @@ const scans = await Scan.find().sort({date:-1})
 res.json(scans)
 
 })
-module.exports = router
 router.get("/recent", scanController.getRecentScans)
+router.delete("/clear", scanController.clearHistory)
+router.get("/export", scanController.exportScans)
+module.exports = router
+

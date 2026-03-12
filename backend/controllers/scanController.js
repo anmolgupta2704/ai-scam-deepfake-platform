@@ -85,3 +85,17 @@ res.status(500).json({error:"Failed to fetch scans"})
 }
 
 }
+exports.exportScans = async(req,res)=>{
+
+const scans = await Scan.find()
+
+res.json(scans)
+
+}
+exports.clearHistory = async(req,res)=>{
+
+await Scan.deleteMany()
+
+res.json({message:"History cleared"})
+
+}
