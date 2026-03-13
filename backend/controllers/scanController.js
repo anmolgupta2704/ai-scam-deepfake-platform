@@ -21,13 +21,14 @@ const scan = new Scan({
 
 fileName: req.file.filename,
 result: result.label,
-confidence: result.confidence
+confidence: result.confidence,
+date: new Date()
 
 })
 
 await scan.save()
 
-res.json({result})
+res.json(result)
 
 }catch(err){
 

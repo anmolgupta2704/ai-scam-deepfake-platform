@@ -11,42 +11,32 @@ if(type === "video"){
 script = "video_predict.py"
 }
 
-// absolute path of python script
 const scriptPath = path.join(__dirname,"../../ai-model",script)
 
-const py = spawn("python",[scriptPath,filePath])
+const py = spawn("py",["-u",scriptPath,filePath])
 
 let output = ""
-let error = ""
 
-// collect python output
 py.stdout.on("data",(data)=>{
 output += data.toString()
 })
 
-// collect python errors
 py.stderr.on("data",(data)=>{
-error += data.toString()
+console.log("Python log:",data.toString())
 })
 
-// when python finishes
-py.on("close",(code)=>{
-
-if(code !== 0){
-console.log("Python error:",error)
-return reject("Python process failed")
-}
+py.on("close",()=>{
 
 try{
 
-// tensorflow logs ignore
-const jsonStart = output.indexOf("{")
+const start = output.indexOf("{")
 
-if(jsonStart === -1){
+if(start === -1){
+console.log("Invalid output:",output)
 return reject("Invalid AI response")
 }
 
-const json = output.slice(jsonStart)
+const json = output.slice(start)
 
 const result = JSON.parse(json)
 
@@ -54,6 +44,7 @@ resolve(result)
 
 }catch(err){
 
+console.log("Parse error:",output)
 reject("Invalid AI response")
 
 }
