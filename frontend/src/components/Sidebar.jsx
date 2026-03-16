@@ -23,6 +23,8 @@ AI Shield
 
 <NavLink to="/webcam">Live Scan</NavLink>
 
+<NavLink to='/scam-check'>Scam Check</NavLink>
+
 
 </div>
 

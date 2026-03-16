@@ -282,3 +282,10 @@ cursor:pointer;
 border-radius:6px;
 
 }
+textarea{
+width:100%;
+padding:12px;
+border-radius:8px;
+background:#0f1c33;
+color:white;
+}

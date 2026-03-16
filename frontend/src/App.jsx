@@ -8,6 +8,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import Register from "./pages/Register"
 import WebcamScan from "./pages/WebcamScan"
 import Settings from "./pages/Settings"
+import ScamCheck from "./pages/ScamCheck";
 export default function App() {
   return (
     <BrowserRouter>
@@ -35,6 +36,7 @@ export default function App() {
         <Route path="/reports" element={<Reports />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/settings" element={<Settings/>}/>
+        <Route path="/scam-check" element={<ScamCheck/>}/>
       </Routes>
     </BrowserRouter>
   );
