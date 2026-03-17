@@ -10,13 +10,14 @@ const app = express()
 connectDB()
 const scamRoutes = require("./routes/scamRoutes")
 
-app.use("/api/scam",scamRoutes)
 app.use(cors())
 app.use(express.json())
 app.use("/api/user", userRoutes)
 app.use("/api/auth", authRoutes)
 app.use("/api/scan", scanRoutes)
 app.use("/uploads", express.static("uploads"))
+app.use("/api/scam",scamRoutes)
+
 app.listen(5000, () => {
 console.log("Server running on port 5000")
 })
