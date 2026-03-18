@@ -298,7 +298,7 @@ B.Tech Computer Science (Cybersecurity)
 
 # ⭐ Project Purpose
 
-This project was developed as a **Final Year Major Project** to demonstrate the use of:
+This project was developed as a **Final Year Major Project** to demonstrate the use of:-
 
 * Artificial Intelligence
 * Full Stack Web Development
